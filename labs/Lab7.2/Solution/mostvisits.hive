@@ -1,8 +1,5 @@
-SELECT ordertotal, orders.userid, itemlist 
-FROM orders 
-JOIN max_ordertotal ON 
-max_ordertotal.userid = orders.userid 
-AND 
-max_ordertotal.maxtotal = orders.ordertotal;
-
-select order_date, sum(ordertotal) FROM orders GROUP BY order_date;
+select count(*) as visit_count, fname, lname
+from wh_visits
+     group by fname, lname                          
+     order by visit_count DESC                    
+     limit 20; 
