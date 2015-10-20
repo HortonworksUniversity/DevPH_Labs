@@ -1,7 +1,7 @@
 drop table if exists hvac;
 
 -- Date,Time,TargetTemp,ActualTemp,System,SystemAge,BuildingID
-create table hvac (date string, time string, targettemp int, actualtemp int, system int, systemage int, buildingid int) row format delimited fields terminated by ',' stored as TEXTFILE;
+create table hvac (readingdate string, readingtime string, targettemp int, actualtemp int, system int, systemage int, buildingid int) row format delimited fields terminated by ',' stored as TEXTFILE;
 
 load data local inpath 'HVAC.csv' into table hvac; 
 

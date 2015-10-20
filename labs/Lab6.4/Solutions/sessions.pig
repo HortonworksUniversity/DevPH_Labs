@@ -1,5 +1,5 @@
 REGISTER datafu-1.2.0.jar;
-REGISTER /usr/lib/pig/piggybank.jar;
+REGISTER /usr/hdp/current/pig-client/piggybank.jar;
 
 DEFINE Sessionize datafu.pig.sessions.Sessionize('8m');
 DEFINE UnixToISO org.apache.pig.piggybank.evaluation.datetime.convert.UnixToISO();
