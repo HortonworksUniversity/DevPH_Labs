@@ -1,0 +1,3 @@
+from wh_visits
+	select count(*) 
+	where info_comment like  "%RECEP%" and info_comment like "%GEN%";

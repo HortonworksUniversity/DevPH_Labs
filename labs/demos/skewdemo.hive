@@ -1,0 +1,29 @@
+set hive.mapred.supports.subdirectories=true;
+set hive.optimize.listbucketing=true;
+set mapred.input.dir.recursive=true;
+
+drop table if exists salarydata;
+
+create external table salarydata (
+        gender string,
+        age int,
+        salary double,
+        zip int
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LOCATION  '/user/root/salarydata/';
+
+
+drop table if exists skew_demo;
+
+create table skew_demo (
+	gender string,
+	age int,
+	salary double,
+	zip int
+)
+skewed by (zip) on (95102,94040) stored as directories;
+
+insert overwrite table skew_demo
+select gender,age,salary,zip from salarydata;

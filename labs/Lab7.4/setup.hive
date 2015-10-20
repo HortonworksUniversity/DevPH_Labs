@@ -1,0 +1,13 @@
+create table nyse_data (exchange_name string, symbol string, trade_date string, open float, high float, 
+low float, close float, volume int, adj_close float) 
+row format delimited fields terminated by ',';
+
+load data local inpath 'nyse_daily_prices_k.csv' into table nyse_data;
+
+create table dividends (exchange_name string, symbol string, trade_date string, dividend float) 
+row format delimited fields terminated by ',';
+
+load data local inpath 'nyse_dividends_k.csv' into table dividends;
+
+create table stock_aggregates (symbol string, year string, high float, low float, 
+average_close float, total_dividends float);

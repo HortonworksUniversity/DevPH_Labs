@@ -1,0 +1,11 @@
+drop table if exists salaries;
+
+create external table salaries (
+       gender string,
+       age int,
+       salary double,
+       zip int
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LOCATION  '/user/root/salarydata/';

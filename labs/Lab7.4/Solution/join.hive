@@ -1,0 +1,6 @@
+insert overwrite table stock_aggregates 
+	select a.symbol, year(a.trade_date), max(a.high), min(a.low), avg(a.close), sum(b.dividend)
+	from nyse_data a
+	left outer join dividends b
+	on (a.symbol = b.symbol and a.trade_date = b.trade_date) 
+	group by a.symbol, year(a.trade_date);

@@ -1,0 +1,9 @@
+create table wh_visits (
+        lname string,
+        fname string,
+        time_of_arrival string,
+        appt_scheduled_time string,
+        meeting_location string,
+        info_comment string)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t' ;

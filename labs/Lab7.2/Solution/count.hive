@@ -1,0 +1,2 @@
+from wh_visits
+	select count(*); 

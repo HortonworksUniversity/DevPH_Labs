@@ -1,0 +1,15 @@
+drop table if exists orders;
+
+create table orders (
+ OrderId int,
+ order_date string,
+ UserId int,
+ UserName string,
+ Gender string,
+ OrderTotal int,
+ itemlist string
+) 
+row format delimited
+fields terminated by '\t';
+
+load data local inpath 'shop.tsv' overwrite into table orders;

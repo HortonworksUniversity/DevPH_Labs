@@ -1,0 +1,6 @@
+from wh_visits
+	select count(*) as comment_count, info_comment
+	where info_comment != ""
+	group by info_comment
+	order by comment_count asc
+	limit 10;

@@ -1,0 +1,8 @@
+SELECT ordertotal, orders.userid, itemlist 
+FROM orders 
+JOIN max_ordertotal ON 
+max_ordertotal.userid = orders.userid 
+AND 
+max_ordertotal.maxtotal = orders.ordertotal;
+
+select order_date, sum(ordertotal) FROM orders GROUP BY order_date;

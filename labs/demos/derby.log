@@ -1,0 +1,20 @@
+----------------------------------------------------------------
+2014-01-08 19:07:00.544 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.4.2.0 - (689064): instance a816c00e-0143-7340-2442-0000004a5a20
+on database directory /root/labs/demos/TempStatsStore  
+
+Database Class Loader started - derby.database.classpath=''
+
+2014-01-08 19:07:00.955 GMT:
+Shutting down instance a816c00e-0143-7340-2442-0000004a5a20
+----------------------------------------------------------------
+----------------------------------------------------------------
+2014-01-08 19:07:23.630 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.4.2.0 - (689064): instance 08264012-0143-7340-2442-0000004a5a20
+on database directory /root/labs/demos/TempStatsStore  
+
+Database Class Loader started - derby.database.classpath=''
+
+2014-01-08 19:07:24.199 GMT:
+Shutting down instance 08264012-0143-7340-2442-0000004a5a20
+----------------------------------------------------------------

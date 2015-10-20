@@ -1,0 +1,1 @@
+yarn jar /usr/lib/hadoop-yarn/hadoop-yarn-applications-distributedshell-2.2.0.2.0.6.0-76.jar org.apache.hadoop.yarn.applications.distributedshell.Client -jar /usr/lib/hadoop-yarn/hadoop-yarn-applications-distributedshell-2.2.0.2.0.6.0-76.jar -shell_command cal

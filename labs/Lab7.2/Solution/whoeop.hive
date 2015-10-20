@@ -1,0 +1,6 @@
+from wh_visits
+	select count(*) as comment_count, info_comment
+	where info_comment like  "%WHO%" and info_comment like "%EOP%"
+	group by info_comment
+	order by comment_count desc
+	limit 30;

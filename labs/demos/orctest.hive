@@ -1,0 +1,7 @@
+create table orctest (
+	gender string,
+	age int,
+	salary double,
+	zip int
+)
+stored as ORC;

@@ -1,0 +1,35 @@
+SELECT username, ordertotal FROM orders ORDER BY ordertotal LIMIT 10;
+
+SELECT username, ordertotal FROM orders ORDER BY ordertotal DESC LIMIT 10;
+
+SELECT sum(ordertotal), gender FROM orders GROUP BY gender;
+
+SELECT sum(ordertotal), substr(order_date,0,4) FROM orders GROUP BY substr(order_date,0,4);
+
+SELECT max(ordertotal), userid FROM orders GROUP BY userid;
+
+SELECT max(ordertotal), userid, itemlist FROM orders GROUP BY userid;
+
+CREATE VIEW max_ordertotal AS SELECT max(ordertotal) AS maxtotal, userid FROM orders GROUP BY userid;
+
+SELECT ordertotal, orders.userid, itemlist FROM orders JOIN max_ordertotal ON max_ordertotal.userid = orders.userid AND max_ordertotal.maxtotal = orders.ordertotal;
+
+SELECT sum(ordertotal), userid FROM orders GROUP BY userid;
+
+SELECT sum(ordertotal), userid, username FROM orders GROUP BY userid;
+
+SELECT sum(ordertotal), userid, collect_set(username)[0] FROM orders GROUP BY userid;
+
+SELECT userid, itemlist, sum(ordertotal) OVER (PARTITION BY userid) FROM orders;
+select order_date, sum(ordertotal) FROM orders GROUP BY order_date;
+
+SELECT order_date, sum(ordertotal) OVER (PARTITION BY order_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) FROM orders;
+
+SELECT order_date, ordertotal, rank() OVER (PARTITION BY order_date ORDER BY ordertotal) FROM orders;
+
+CREATE VIEW 2013_orders AS SELECT orderid, order_date, username, itemlist FROM orders WHERE substr(order_date,0,4) = '2013';
+
+
+select substr(order_date,0,7), ordertotal, rank() OVER (PARTITION BY substr(order_date,0,7) ORDER BY ordertotal) FROM orders;
+
+

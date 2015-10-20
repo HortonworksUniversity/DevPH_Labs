@@ -1,0 +1,53 @@
+<workflow-app xmlns="uri:oozie:workflow:0.2" 
+  	 	  name="whitehouse-workflow">
+
+    <start to="export_congress"/>
+
+    <action name="export_congress">
+        <pig>
+            <job-tracker>${resourceManager}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <prepare>
+                <delete path="${nameNode}user/root/project_congress"/>
+            </prepare>
+            <configuration>
+                <property>
+                    <name>mapreduce.job.queuename</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+           <script>whitehouse.pig</script>
+        </pig>
+        <ok to="define_congress_table"/>
+        <error to="fail"/>
+    </action>
+
+    <action name="define_congress_table">
+        <hive xmlns="uri:oozie:hive-action:0.2">
+            <job-tracker>${resourceManager}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <prepare>
+                <delete path="${nameNode}user/root/project_congress/_logs"/>
+            </prepare>
+	    <job-xml>hive-site.xml</job-xml>
+            <configuration>
+                <property>
+                    <name>mapreduce.job.queuename</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <script>congress_visits.hive</script>
+        </hive>
+        <ok to="end"/>
+        <error to="fail"/>
+    </action>
+
+    <kill name="fail">
+        <message>Job failed, error 
+           message[${wf:errorMessage(wf:lastErrorNode())}]
+        </message>
+    </kill>
+
+    <end name="end"/>
+
+</workflow-app>

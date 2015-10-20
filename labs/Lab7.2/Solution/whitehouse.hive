@@ -1,0 +1,4 @@
+select * from wh_visits 
+	where time_of_arrival != ""
+	order by unix_timestamp(time_of_arrival,  'MM/dd/yyyy hh:mm') desc
+	limit 10;

@@ -1,0 +1,17 @@
+drop table if exists congress_visits;
+
+create table congress_visits (
+   lname string,
+   fname string,
+   middle string,
+   time_of_arrival string, 
+   appt_scheduled_time string,
+   visitee_lname string,
+   visitee_fname string, 
+   meeting_location string,
+   info_comment string
+) 
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY '\t' ;
+
+LOAD DATA INPATH '/user/root/project_congress' INTO TABLE congress_visits;
