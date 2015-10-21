@@ -14,7 +14,7 @@ clicks_group = GROUP clicks_iso BY id;
 clicks_sessionized = FOREACH clicks_group {
 	sorted = ORDER clicks_iso BY isotime;
 	GENERATE FLATTEN(Sessionize(sorted)) AS (isotime, time, id, sessionid);
-}
+};
 
 --dump clicks_sessionized;
 
@@ -29,7 +29,7 @@ sessiontimes_avg = FOREACH sessiontimes_all {
 	ordered = ORDER session_times BY session_length;
 	GENERATE AVG(ordered.session_length) AS avg_session,
 	   Median(ordered.session_length) AS median_session;
-} 
+}; 
 
 dump sessiontimes_avg;
 

@@ -10,6 +10,6 @@ stocks_group = GROUP stocks_filter BY symbol;
 medians = FOREACH stocks_group {
 	sorted = ORDER stocks_filter BY highprice;
 	GENERATE group AS symbol, Median(sorted.highprice) AS median;
-}
+};
 
 dump medians;

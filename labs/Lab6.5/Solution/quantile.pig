@@ -10,6 +10,6 @@ stocks_group = GROUP stocks_filter BY symbol;
 quantiles = FOREACH stocks_group {
 	sorted = ORDER stocks_filter BY highprice;
 	GENERATE group AS symbol, Quantile(sorted.highprice) AS quant;
-}
+};
 
 dump quantiles;
