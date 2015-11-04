@@ -1,4 +1,4 @@
-register datafu-1.2.0.jar;
+REGISTER /usr/hdp/current/pig-client/lib/datafu.jar; 
 
 define Median datafu.pig.stats.Median();
 

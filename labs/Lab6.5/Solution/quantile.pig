@@ -1,4 +1,4 @@
-register datafu-1.2.0.jar;
+REGISTER /usr/hdp/current/pig-client/lib/datafu.jar; 
 
 define Quantile datafu.pig.stats.Quantile('0.0','0.25','0.50','0.75','1.0');
 

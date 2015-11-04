@@ -1,4 +1,4 @@
-register /root/devph/labs/Lab6.5/datafu-1.2.0.jar; 
+register /usr/hdp/current/pig-client/lib/datafu.jar; 
 
 define PageRank datafu.pig.linkanalysis.PageRank();
 

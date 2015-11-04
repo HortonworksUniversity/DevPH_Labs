@@ -1,4 +1,4 @@
-REGISTER datafu-1.2.0.jar;
+REGISTER /usr/hdp/current/pig-client/lib/datafu.jar; 
 REGISTER /usr/hdp/current/pig-client/lib/piggybank.jar;
 
 DEFINE Sessionize datafu.pig.sessions.Sessionize('8m');
