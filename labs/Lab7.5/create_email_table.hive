@@ -1,6 +1,6 @@
 CREATE TABLE hive_user_email
 STORED AS AVRO
-TBLPROPERTIES ('avro.schema.url'='hdfs://sandbox.hortonworks.com:8020/user/root/mbox.avsc');
+TBLPROPERTIES ('avro.schema.url'='hdfs:///user/root/mbox.avsc');
 
 
 
