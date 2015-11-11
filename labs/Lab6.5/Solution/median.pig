@@ -2,8 +2,14 @@ REGISTER /usr/hdp/current/pig-client/lib/datafu.jar;
 
 define Median datafu.pig.stats.Median();
 
-stocks = LOAD 'stocks.csv' USING PigStorage(',') AS (nyse:chararray, symbol:chararray, closingdate:chararray,low:double,highprice:double);
-
+stocks = LOAD 'stocks.csv' USING PigStorage(',') AS (
+   nyse:chararray, 
+   symbol:chararray, 
+   closingdate:chararray,
+   openprice:double,
+   highprice:double
+   lowprice:double);
+   
 stocks_filter = FILTER stocks BY highprice is not null;
 stocks_group = GROUP stocks_filter BY symbol;
 
