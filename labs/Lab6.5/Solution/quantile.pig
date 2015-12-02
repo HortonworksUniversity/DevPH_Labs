@@ -7,7 +7,7 @@ stocks = LOAD 'stocks.csv' USING PigStorage(',') AS (
    symbol:chararray, 
    closingdate:chararray,
    openprice:double,
-   highprice:double
+   highprice:double,
    lowprice:double);
 
 stocks_filter = FILTER stocks BY highprice is not null;
